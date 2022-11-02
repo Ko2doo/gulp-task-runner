@@ -1,11 +1,24 @@
 {
-  "name": "wgb-tasks-runner",
-  "version": "0.1.0",
+  "name": "gulp-task-runner",
+  "version": "1.0.0-beta",
   "description": "Сборщик проектов для вёрстки Webpack + Gulp + Babel",
   "main": "gulpfile.babel.js",
-  "keywords": [],
-  "author": "NИ",
+  "keywords": [
+    "babel",
+    "webpack",
+    "gulp",
+    "node",
+    "project builder"
+  ],
+  "author": {
+    "name": "NИ",
+    "email": "galaxyrobotix@gmail.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ko2doo/gulp-task-runner.git"
+  },
   "scripts": {
     "dev": "gulp",
     "build": "gulp production --production",
@@ -63,6 +76,16 @@
     "stylelint-order": "^5.0.0",
     "yargs": "^17.6.0"
   },
+  "engines": {
+    "node": ">= 14.19.1",
+    "npm": ">= 6.14.16"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win64",
+    "!win32"
+  ],
   "lint-staged": {
     "*.scss": [
       "stylelint --fix --allow-empty-input"
