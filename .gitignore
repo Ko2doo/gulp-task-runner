@@ -1,0 +1,8 @@
+node_modules/
+build/
+*.directory
+source/**/*.directory
+*.zip
+*.7z
+.env
+package-lock.json
