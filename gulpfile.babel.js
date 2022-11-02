@@ -16,6 +16,7 @@
 'use strict';
 
 import gulp from 'gulp';
+import './runners/notify';
 
 const requireDir = require('require-dir'),
   paths = {
@@ -57,12 +58,13 @@ export { paths };
 export const development = gulp.series(
   'clean',
   gulp.parallel(['html', 'vendor-styles', 'styles', 'scripts', 'images', 'webp', 'fonts']),
-  gulp.parallel('server'),
+  gulp.parallel('server', 'say:hello'),
 );
 
 export const production = gulp.series(
   'clean',
   gulp.parallel(['html', 'vendor-styles', 'styles', 'scripts', 'images', 'webp', 'fonts']),
+  'say:build',
 );
 
 export default development;
