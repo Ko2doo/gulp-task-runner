@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: './source/js/main.js',
+    vendor: './source/js/vendor.js',
   },
 
   output: {

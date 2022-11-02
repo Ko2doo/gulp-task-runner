@@ -1,7 +1,6 @@
-/*
- * Таск-раннер для отслеживания html разметки
- *
- */
+//  -------------------------------------------------------------
+//    Таск-раннер для отслеживания html разметки
+//  -------------------------------------------------------------
 
 'use strict';
 
@@ -26,11 +25,11 @@ gulp.task('html', () => {
     )
     .pipe(
       plumber({
-        errorHandler: notify.onError(function (err) {
+        errorHandler: notify.onError(function (error) {
           return {
             title: 'HTML include',
-            sound: 'Blow',
-            message: err.message,
+            sound: false,
+            message: error.message,
           };
         }),
       }),

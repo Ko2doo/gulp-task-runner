@@ -1,7 +1,6 @@
-/*
- * Таск-раннер для отслеживания стилей
- *
- */
+//  -------------------------------------------------------------
+//    Таск-раннер для отслеживания стилей
+//  -------------------------------------------------------------
 
 'use strict';
 
@@ -32,11 +31,11 @@ gulp.task('styles', () => {
     .pipe(gulpif(!production, sourcemaps.init()))
     .pipe(
       plumber({
-        errorHandler: notify.onError(function (err) {
+        errorHandler: notify.onError(function (error) {
           return {
             title: 'Styles',
-            sound: 'Blow',
-            message: err.message,
+            sound: false,
+            message: error.message,
           };
         }),
       }),
