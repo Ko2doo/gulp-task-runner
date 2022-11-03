@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-runner",
-  "version": "1.0.1-beta",
+  "version": "1.0.2-beta",
   "description": "Сборщик проектов для вёрстки Webpack + Gulp + Babel",
   "main": "gulpfile.babel.js",
   "keywords": [

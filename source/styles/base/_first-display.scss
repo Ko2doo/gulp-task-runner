@@ -1,5 +1,28 @@
 .first-display {
-  padding: 20px 22px;
+  .container {
+    @include make-container(); // создаем контейнер
+    box-sizing: border-box;
+  }
+
+  .row {
+    @include make-row(); // создаем ряд
+  }
+
+  .col {
+    display: block;
+    margin: 20px 0 20px;
+    @include make-col-ready(); // Объявляем колонки
+    @include make-col(12); // задаем размер колонки
+
+    // Говорим что при размере экрана sm -> 576px размер будет оставлять 50% от ширины экрана
+    @include media-breakpoint-down(lg) {
+      @include make-col(6);
+    }
+
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+  }
 
   .hay_dialog {
     font-size: 18px;

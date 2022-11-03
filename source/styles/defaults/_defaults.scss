@@ -1,3 +1,11 @@
+// -----------------------------------------------------------------
+//    В проекте используются некоторые наработки Bootstrap 5.2.2
+//      -> https://github.com/twbs/bootstrap
+//      -> https://bootstrap5.ru/docs/layout/grid#sass
+// -----------------------------------------------------------------
+
+@import 'functions';
+@import 'variables';
 @import 'mixins';
 
 // сброс стилей
