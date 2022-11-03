@@ -8,9 +8,8 @@ import { paths } from '../gulpfile.babel';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import concat from 'gulp-concat';
-import rename from 'gulp-rename';
+import plumber from 'gulp-plumber';
+import notify from 'gulp-notify';
 import browsersync from 'browser-sync';
 import debug from 'gulp-debug';
 import yargs from 'yargs';
@@ -25,16 +24,19 @@ webpackConfig.devtool = production ? false : 'source-map';
 gulp.task('scripts', () => {
   return gulp
     .src(paths.scripts.source)
-    .pipe(webpackStream(webpackConfig), webpack)
-    .pipe(gulpif(production, concat('index.js')))
     .pipe(
-      gulpif(
-        production,
-        rename({
-          suffix: '.min',
+      plumber({
+        errorHandler: notify.onError(function (error) {
+          return {
+            title: 'Scripts',
+            sound: false,
+            message: error.message,
+          };
         }),
-      ),
+      }),
     )
+    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(plumber.stop())
     .pipe(gulp.dest(paths.scripts.build))
     .pipe(
       debug({

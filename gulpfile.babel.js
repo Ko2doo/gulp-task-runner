@@ -18,7 +18,7 @@
 'use strict';
 
 import gulp from 'gulp';
-import './runners/notify';
+import './task-runners/notify';
 
 const requireDir = require('require-dir'),
   paths = {
@@ -53,7 +53,7 @@ const requireDir = require('require-dir'),
     },
   };
 
-requireDir('./runners/');
+requireDir('./task-runners/');
 
 export { paths };
 

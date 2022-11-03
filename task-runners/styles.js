@@ -77,14 +77,14 @@ gulp.task('styles', () => {
     )
     .pipe(
       gulpif(
-        production,
+        !production,
         rename({
           suffix: '.min',
         }),
       ),
     )
     .pipe(plumber.stop())
-    .pipe(gulpif(!production, sourcemaps.write('./sourcemaps/')))
+    .pipe(gulpif(!production, sourcemaps.write('./maps/')))
     .pipe(gulp.dest(paths.styles.build))
     .pipe(
       debug({

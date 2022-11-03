@@ -11,7 +11,7 @@ gulp.task('say:hello', (done) => {
     message: 'Проект запущен, весёлого кодинга!',
     sound: false,
     timeout: 4,
-    'app-name': 'WGB task runner',
+    'app-name': 'gulp-task-runner',
   });
 
   return done();
@@ -23,7 +23,7 @@ gulp.task('say:build', (done) => {
     message: 'проверьте папку /build',
     sound: false,
     timeout: 4,
-    'app-name': 'WGB task runner',
+    'app-name': 'gulp-task-runner',
   });
 
   return done();

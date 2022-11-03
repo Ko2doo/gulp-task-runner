@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-runner",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "Сборщик проектов для вёрстки Webpack + Gulp + Babel",
   "main": "gulpfile.babel.js",
   "keywords": [
@@ -34,8 +34,6 @@
     "@babel/preset-env": "^7.19.4",
     "@babel/register": "^7.18.9",
     "babel-loader": "^8.2.5",
-    "webpack": "^5.74.0",
-    "webpack-stream": "^7.0.0",
     "browser-sync": "^2.27.10",
     "concat": "^1.0.3",
     "del": "^6.1.1",
@@ -43,6 +41,7 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
+    "gulp-beautify": "^3.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
@@ -74,6 +73,8 @@
     "stylelint": "^14.14.0",
     "stylelint-config-standard-scss": "^6.0.0",
     "stylelint-order": "^5.0.0",
+    "webpack": "^5.74.0",
+    "webpack-stream": "^7.0.0",
     "yargs": "^17.6.0"
   },
   "engines": {
