@@ -77,7 +77,7 @@ gulp.task('styles', () => {
     )
     .pipe(
       gulpif(
-        !production,
+        production,
         rename({
           suffix: '.min',
         }),

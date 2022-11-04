@@ -28,7 +28,7 @@ const requireDir = require('require-dir'),
       watch: ['./source/index.html', './source/html/**/*.html'],
     },
     styles: {
-      source: './source/styles/main.scss',
+      source: ['./source/styles/main.scss', './source/styles/vendor.scss'],
       build: './build/styles/',
       watch: ['./source/styles/**/*.{scss,sass}'],
     },
@@ -47,10 +47,6 @@ const requireDir = require('require-dir'),
       build: './build/fonts/',
       watch: './source/fonts/**/*.{woff,woff2,ttf}',
     },
-    vendorStyles: {
-      source: './node_modules/normalize.css/normalize.css',
-      build: './build/styles/vendor/',
-    },
   };
 
 requireDir('./task-runners/');
@@ -59,13 +55,13 @@ export { paths };
 
 export const development = gulp.series(
   'clean',
-  gulp.parallel(['html', 'vendor-styles', 'styles', 'scripts', 'images', 'webp', 'fonts']),
+  gulp.parallel(['html', 'styles', 'scripts', 'images', 'webp', 'fonts']),
   gulp.parallel('server', 'say:hello'),
 );
 
 export const production = gulp.series(
   'clean',
-  gulp.parallel(['html', 'vendor-styles', 'styles', 'scripts', 'images', 'webp', 'fonts']),
+  gulp.parallel(['html', 'styles', 'scripts', 'images', 'webp', 'fonts']),
   'say:build',
 );
 

@@ -8,6 +8,8 @@ import { paths } from '../gulpfile.babel';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import rename from 'gulp-rename';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import browsersync from 'browser-sync';
@@ -36,6 +38,14 @@ gulp.task('scripts', () => {
       }),
     )
     .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(
+      gulpif(
+        production,
+        rename({
+          suffix: '.min',
+        }),
+      ),
+    )
     .pipe(plumber.stop())
     .pipe(gulp.dest(paths.scripts.build))
     .pipe(
