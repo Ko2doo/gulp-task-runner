@@ -22,6 +22,11 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp production --production",
+    "build:html": "gulp html --production",
+    "build:styles": "gulp styles --production",
+    "build:scripts": "gulp scripts --production",
+    "build:images": "gulp images --production",
+    "build:fonts": "gulp fonts --production",
     "build:webp": "gulp webp --production",
     "lint:styles": "stylelint \"source/**/*.scss\"",
     "lint:styles --fix": "stylelint --fix \"source/**/*.scss\"",
