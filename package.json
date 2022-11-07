@@ -23,10 +23,10 @@
     "dev": "gulp",
     "build": "gulp production --production",
     "build:webp": "gulp webp --production",
-    "lint:styles": "stylelint \"src/**/*.scss\"",
-    "lint:styles --fix": "stylelint --fix \"src/**/*.scss\"",
-    "lint:scripts": "eslint \"src/js/**/*.js\"",
-    "lint:scripts --fix": "eslint --fix \"src/js/**/*.js\""
+    "lint:styles": "stylelint \"source/**/*.scss\"",
+    "lint:styles --fix": "stylelint --fix \"source/**/*.scss\"",
+    "lint:scripts": "eslint \"source/js/**/*.js\"",
+    "lint:scripts --fix": "eslint --fix \"source/js/**/*.js\""
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

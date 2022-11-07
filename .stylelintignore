@@ -1,3 +1,1 @@
-/source/styles/**/*.scss
-/source/styles/**/*.sass
-/source/styles/**/*.less
+/source/styles/defaults/**/*.scss
