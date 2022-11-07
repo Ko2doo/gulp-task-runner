@@ -1,17 +1,17 @@
 .first-display {
   .container {
-    @include make-container(); // создаем контейнер
+    @include make-container; // создаем контейнер
+
     box-sizing: border-box;
   }
 
   .row {
-    @include make-row(); // создаем ряд
+    @include make-row; // создаем ряд
   }
 
   .col {
-    display: block;
     @include margin(20px 0 20px);
-    @include make-col-ready(); // Объявляем колонки
+    @include make-col-ready; // Объявляем колонки
     @include make-col(12); // задаем размер колонки
 
     // Говорим что при размере экрана lg -> 992px размер будет оставлять 50% от ширины экрана
@@ -22,6 +22,8 @@
     @include media-breakpoint-down(md) {
       @include make-col(12);
     }
+
+    display: block;
   }
 
   .hay_dialog {

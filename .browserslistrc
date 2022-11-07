@@ -1,6 +1,9 @@
 # https://github.com/browserslist/browserslist#readme
+# Запустите npx browserslist в каталоге проекта,
+# чтобы увидеть, какие браузеры были выбраны вашими запросами.
 
-last 3 version
-> 1%
+last 4 version # последние 4-ри версии браузера
+> 2%
 ie 9-11
 not dead
+maintained node versions

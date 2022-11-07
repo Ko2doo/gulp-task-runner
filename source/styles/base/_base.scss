@@ -1,8 +1,5 @@
 // RFS(Response font sizes) -> https://github.com/twbs/rfs/tree/v9.0.3
-@import '../../node_modules/rfs/scss.scss';
-
-@import 'header.scss';
-
-@import 'first-display.scss';
-
-@import 'footer.scss';
+@import '../../node_modules/rfs/scss';
+@import 'header';
+@import 'first-display';
+@import 'footer';
