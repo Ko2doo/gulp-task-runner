@@ -15,54 +15,93 @@
 //   *  Copyright (c) 2022 NИ
 //  --------------------------------------------------------------------------------
 
-'use strict';
+"use strict";
 
-import gulp from 'gulp';
-import './task-runners/notify';
+import gulp from "gulp";
+import yargs from "yargs";
+import "./task-runners/notify";
+import notify from "gulp-notify";
 
-const requireDir = require('require-dir'),
+const argv = yargs().argv;
+const production = !!argv.production;
+
+const requireDir = require("require-dir"),
   paths = {
     html: {
-      source: './source/html/index.html',
-      build: ['./build/'],
-      watch: ['./source/index.html', './source/html/**/*.html'],
+      source: "./source/html/index.html",
+      build: ["./build/"],
+      watch: ["./source/index.html", "./source/html/**/*.html"],
     },
     styles: {
-      source: ['./source/styles/main.scss', './source/styles/vendor.scss'],
-      build: './build/styles/',
-      watch: ['./source/styles/**/*.{scss,sass}'],
+      source: ["./source/styles/main.scss", "./source/styles/vendor.scss"],
+      build: "./build/styles/",
+      watch: ["./source/styles/**/*.{scss,sass}"],
     },
     scripts: {
-      source: './source/js/main.js',
-      build: './build/js/',
-      watch: ['./source/js/**/*.js'],
+      source: "./source/js/main.js",
+      build: "./build/js/",
+      watch: ["./source/js/**/*.js"],
     },
     images: {
-      source: ['./source/img/**/*.{jpg,jpeg,png,gif,tiff,svg}'],
-      build: './build/img/',
-      watch: './source/img/**/*.{jpg,jpeg,png,gif,svg,tiff}',
+      source: ["./source/img/**/*.{jpg,jpeg,png,gif,tiff,svg}"],
+      build: "./build/img/",
+      watch: "./source/img/**/*.{jpg,jpeg,png,gif,svg,tiff}",
     },
     fonts: {
-      source: './source/fonts/**/*.{woff,woff2,ttf}',
-      build: './build/fonts/',
-      watch: './source/fonts/**/*.{woff,woff2,ttf}',
+      source: "./source/fonts/**/*.{woff,woff2,ttf}",
+      build: "./build/fonts/",
+      watch: "./source/fonts/**/*.{woff,woff2,ttf}",
     },
   };
 
-requireDir('./task-runners/');
+requireDir("./task-runners/");
 
-export { paths };
+const config = {
+  production: production,
+  plumber: {
+    errorHandler: notify.onError(function (error) {
+      return {
+        title: "Возникла ошибка",
+        sound: false,
+        message: error.message,
+      };
+    }),
+  },
+  fileInclude: {
+    prefix: "@@",
+    basepath: "@file",
+  },
+};
 
-export const development = gulp.series(
-  'clean',
-  gulp.parallel(['html', 'styles', 'scripts', 'images', 'webp', 'fonts']),
-  gulp.parallel('server', 'say:hello'),
+gulp.task(
+  "default",
+  gulp.series(
+    "clean",
+    gulp.parallel("html", "styles", "scripts", "images", "webp", "fonts"),
+    gulp.parallel("server", "say:hello")
+  )
 );
 
-export const production = gulp.series(
-  'clean',
-  gulp.parallel(['html', 'styles', 'scripts', 'images', 'webp', 'fonts']),
-  'say:build',
+gulp.task(
+  "build",
+  gulp.series(
+    "clean",
+    gulp.parallel("html", "styles", "scripts", "images", "webp", "fonts"),
+    "say:build"
+  )
 );
 
-export default development;
+export { paths, config };
+// export const development = gulp.series(
+//   "clean",
+//   gulp.parallel(["html", "styles", "scripts", "images", "webp", "fonts"]),
+//   gulp.parallel("server", "say:hello")
+// );
+
+// export const production = gulp.series(
+//   "clean",
+//   gulp.parallel(["html", "styles", "scripts", "images", "webp", "fonts"]),
+//   "say:build"
+// );
+
+// export default development;

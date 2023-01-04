@@ -26,3 +26,8 @@ trim_trailing_whitespace = true
 # для всех файлов .md
 [*.md]
 trim_trailing_whitespace = false
+
+
+# правила для json & yml файлов
+[{*.json,*.yml}]
+indent_size = 2
