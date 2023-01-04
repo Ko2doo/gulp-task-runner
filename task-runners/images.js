@@ -2,31 +2,27 @@
 //    Таск-раннер для отслеживания, сжатия изображений
 //  -------------------------------------------------------------
 
-'use strict';
+"use strict";
 
-import { paths } from '../gulpfile.babel';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import imagemin from 'gulp-imagemin';
-import imageminPngquant from 'imagemin-pngquant';
-import imageminZopfli from 'imagemin-zopfli';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminGiflossy from 'imagemin-giflossy';
-import newer from 'gulp-newer';
-import debug from 'gulp-debug';
-import browsersync from 'browser-sync';
-import yargs from 'yargs';
+import { paths, configs } from "../gulpfile.babel";
+import gulp from "gulp";
+import gulpif from "gulp-if";
+import imagemin from "gulp-imagemin";
+import imageminPngquant from "imagemin-pngquant";
+import imageminZopfli from "imagemin-zopfli";
+import imageminMozjpeg from "imagemin-mozjpeg";
+import imageminGiflossy from "imagemin-giflossy";
+import newer from "gulp-newer";
+import debug from "gulp-debug";
+import browsersync from "browser-sync";
 
-const argv = yargs.argv,
-  production = !!argv.production;
-
-gulp.task('images', () => {
+gulp.task("images", () => {
   return gulp
     .src(paths.images.source)
     .pipe(newer(paths.images.build))
     .pipe(
       gulpif(
-        production,
+        configs.production,
         imagemin([
           imageminGiflossy({
             optimizationLevel: 3,
@@ -56,14 +52,14 @@ gulp.task('images', () => {
               { collapseGroups: true },
             ],
           }),
-        ]),
-      ),
+        ])
+      )
     )
     .pipe(gulp.dest(paths.images.build))
     .pipe(
       debug({
-        title: 'Images',
-      }),
+        title: "Images",
+      })
     )
     .pipe(browsersync.stream());
 });

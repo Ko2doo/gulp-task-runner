@@ -2,56 +2,44 @@
 //    Таск-раннер для отслеживания js скриптов
 //  -------------------------------------------------------------
 
-'use strict';
+"use strict";
 
-import { paths } from '../gulpfile.babel';
-import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import rename from 'gulp-rename';
-import plumber from 'gulp-plumber';
-import notify from 'gulp-notify';
-import browsersync from 'browser-sync';
-import debug from 'gulp-debug';
-import yargs from 'yargs';
+import gulp from "gulp";
+import gulpif from "gulp-if";
+import rename from "gulp-rename";
+import plumber from "gulp-plumber";
 
-const webpackConfig = require('../webpack.config.js'),
-  argv = yargs.argv,
-  production = !!argv.production;
+import webpack from "webpack";
+import webpackStream from "webpack-stream";
+import webpackConfig from "../webpack.config.js";
+import browsersync from "browser-sync";
+import debug from "gulp-debug";
+import { paths, configs } from "../gulpfile.babel";
 
-webpackConfig.mode = production ? 'production' : 'development';
-webpackConfig.devtool = production ? false : 'source-map';
+gulp.task("scripts:webpack", () => {
+  webpackConfig.mode = configs.production ? "production" : "development";
+  webpackConfig.devtool = configs.production ? false : "source-map";
 
-gulp.task('scripts', () => {
   return gulp
     .src(paths.scripts.source)
-    .pipe(
-      plumber({
-        errorHandler: notify.onError(function (error) {
-          return {
-            title: 'Scripts',
-            sound: false,
-            message: error.message,
-          };
-        }),
-      }),
-    )
+    .pipe(plumber(configs.plumber))
     .pipe(webpackStream(webpackConfig), webpack)
     .pipe(
       gulpif(
-        production,
+        configs.production,
         rename({
-          suffix: '.min',
-        }),
-      ),
+          suffix: ".min",
+        })
+      )
     )
     .pipe(plumber.stop())
     .pipe(gulp.dest(paths.scripts.build))
     .pipe(
       debug({
-        title: 'JS files',
-      }),
+        title: "JS files",
+      })
     )
     .pipe(browsersync.stream());
 });
+
+gulp.task("scripts", gulp.parallel("scripts:webpack"));

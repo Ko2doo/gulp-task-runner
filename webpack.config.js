@@ -1,13 +1,14 @@
 module.exports = {
+  mode: "development",
   entry: {
-    main: './source/js/main.js',
-    vendor: './source/js/vendor.js',
+    main: "./source/js/main.js",
+    vendor: "./source/js/vendor.js",
   },
 
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].js',
-    publicPath: '/',
+    filename: "[name].js",
+    chunkFilename: "[name].js",
+    publicPath: "/",
   },
 
   optimization: {
@@ -15,8 +16,8 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /node_modules/,
-          chunks: 'initial',
-          name: 'vendor',
+          chunks: "initial",
+          name: "vendor",
           enforce: true,
         },
       },
@@ -29,9 +30,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: require.resolve('babel-loader'),
+          loader: require.resolve("babel-loader"),
           options: {
-            presets: [['@babel/preset-env', { modules: false }]],
+            presets: [["@babel/preset-env", { modules: false }]],
           },
         },
       },

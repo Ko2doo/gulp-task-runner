@@ -11,4 +11,11 @@
     text-align: center;
     color: #a4a4a4;
   }
+
+  .lorem {
+    @include font-size(1.24rem);
+    @include padding(20px 0 40px);
+
+    color: #fcfc;
+  }
 }
