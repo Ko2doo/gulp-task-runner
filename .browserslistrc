@@ -2,6 +2,14 @@
 # Запустите npx browserslist в каталоге проекта,
 # чтобы увидеть, какие браузеры были выбраны вашими запросами.
 
-last 4 version # последние 4-ри версии браузера
-> 1%
+>= 1%
+last 1 major version
 not dead
+Chrome >= 45
+Firefox >= 38
+Edge >= 12
+Explorer >= 10
+iOS >= 9
+Safari >= 9
+Android >= 4.4
+Opera >= 30
