@@ -37,9 +37,6 @@
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.productIconTheme": "icons-carbon",
