@@ -27,7 +27,7 @@ trim_trailing_whitespace = true
 [{*.js,*.ts}]
 quote_type = single
 
-[{*.json}]
+[*.json]
 quote_type = double
 
 # для всех файлов .md
