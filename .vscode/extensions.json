@@ -4,13 +4,15 @@
     "formulahendry.auto-close-tag",
     "formulahendry.auto-complete-tag",
     "vunguyentuan.vscode-css-variables",
-    "pucelle.vscode-css-navigation",
+    "pranaygp.vscode-css-peek",
     "EditorConfig.EditorConfig",
     "dbaeumer.vscode-eslint",
     "mkxml.vscode-filesize",
     "wix.vscode-import-cost",
     "ionutvmi.path-autocomplete",
     "esbenp.prettier-vscode",
+    "Nkzq.sass-variables-helper",
+    "mrmlnc.vscode-scss",
     "rvest.vs-code-prettier-eslint",
     "syler.sass-indented",
     "gencer.html-slim-scss-css-class-completion",
@@ -20,6 +22,6 @@
     "MS-CEINTL.vscode-language-pack-ru",
     "akamud.vscode-theme-onedark",
     "equinusocio.vsc-material-theme-icons",
-    "PKief.material-product-icons",
+    "PKief.material-product-icons"
   ]
 }
