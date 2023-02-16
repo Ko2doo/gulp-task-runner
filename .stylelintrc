@@ -96,6 +96,18 @@
                     ],
                 }
             ]],
+        "scss/dollar-variable-pattern": [
+          null
+        ],
+        "scss/dollar-variable-empty-line-before": [
+          null
+        ],
+        "scss/comment-no-empty": [
+          null
+        ],
+        "no-invalid-position-at-import-rule": [
+            null
+        ],
         "color-hex-case": ["lower", {
             "severity": "warning",
             "message": "HEX-цвета нужно указывать строчными буквами"
@@ -171,12 +183,12 @@
             "message": "Пробел перед символом ; недопустим"
         }],
 
-        "block-closing-brace-empty-line-before": ["never", {
-            "message": "Перед «}» не должно быть пустой строки"
-        }],
-        "block-closing-brace-newline-after": ["always", {
-            "message": "После «}» не должно быть переноса"
-        }],
+        "block-closing-brace-empty-line-before": [
+            null
+        ],
+        "block-closing-brace-newline-after": [
+            null
+        ],
         "block-closing-brace-newline-before": ["always", {
             "message": "Перед «}» должен быть перенос"
         }],
@@ -252,8 +264,8 @@
         "selector-max-empty-lines": [0, {
             "message": "Пустые строки в селекторах недопустимы"
         }],
-        "selector-list-comma-newline-after": ["never-multi-line", {
-            "message": "После запятой необходим перенос строки"
+        "selector-list-comma-newline-after": ["always-multi-line", {
+            "message": "В многострочных списках селекторов всегда должен быть символ новой строки после запятых."
         }],
         "selector-list-comma-newline-before": ["never-multi-line", {
             "message": "Перед запятой не должно быть переноса строки"
@@ -299,6 +311,23 @@
 
         "media-feature-parentheses-space-inside": ["never", {
             "message": "Пробелы после «(» и перед «)» использовать нельзя"
-        }]
+        }],
+        "at-rule-empty-line-before": ["always", {
+            "message": "Никогда не должно быть пустой строкой, перед объявлением правил",
+            except: "inside-block",
+            ignore: "after-comment"
+        }],
+        "scss/no-global-function-names": [
+            null
+        ],
+        "scss/at-mixin-pattern": [
+            null
+        ],
+        "declaration-block-no-redundant-longhand-properties": [
+            null
+        ],
+        "selector-class-pattern": [
+            null
+        ]
     }
 }
